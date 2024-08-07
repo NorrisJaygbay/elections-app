@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Information Form</title>
+    <link rel="stylesheet" href="/party-registration.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Party Information</h1>
+        <form id="personal-info-form">
+            <div class="form-controlone">
+                <label for="parytlogo">Party Logo</label>
+                <div class="logo-control">
+                    <img id="partylogo-preview" src="#" alt="Image Preview">
+                    <p>party logo</p>
+                </div>
+                <input type="file" id="partylogo" name="photo" accept="image/*" required>
+            </div>
+            <div class="form-controltwo">
+                <label for="party-name">Party Name</label>
+                <input type="text" id="party-name" placeholder="enter party name" name="party-name" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="/party-registration.js"></script>
+</body>
+</html>
