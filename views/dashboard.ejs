@@ -4,8 +4,569 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <script src="https://kit.fontawesome.com/3e247721a8.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        /* for all font awesome images */
+        /* for the logo */
+        .fa-pied-piper-pp{
+            font-size: 3rem;
+        }
+        .fa-bell{
+            font-size: 1.5rem;
+        }
+        .header-bellControl .fa-circle-user{
+            font-size: 1.5rem;
+        }
+        /* for the list icon */
+        .aside-ol-img{
+            font-size: 1.5rem;
+        }
+        .fa-pencil{
+            font-size: 2.5rem;
+            color: #064fbd;
+            animation: nav2but 1.2s linear infinite;
+        }
+        @keyframes nav2but{
+            0%{
+                transform: scale(.9);
+            }
+            50%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(.9);
+            }
+        }
+        
+        .fa-scale-balanced{
+            font-size: 2.5rem;
+            color: #FAA300;
+            animation: nav2but 1.2s linear infinite;
+        }
+        @keyframes nav2but{
+            0%{
+                transform: scale(.95);
+            }
+            50%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(.95);
+            }
+        }
+         /* for all font awesome images ends */
+        /* for the hover active class */
+        .active{
+            /* background-color: #f0f0f0; */
+            background-color: #0d6efd;
+            /* color: #fff; */
+        }
+        .active a{
+            color: #fff;
+        }
+        body{
+            /* background-color: rgb(247, 227, 231); */
+            /* background-color: #fac7ba; */
+            background-color: #f7e0ec;
+        }
+        /* for the header */
+        .header{
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            background-color: #fff;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            /* border-radius: 10px; */
+            /* margin: 10px 0; */
+            box-shadow: 0 0 5px #000000a6;
+        }
+        .header-bellControl{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .bellControl{
+            position: relative;
+            /* border: 1px solid; */
+        }
+        .notificatio-resultControl{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: -12px;
+            right: -5px;
+            color: #fff;
+            font-size: .85rem;
+            background-color: red;
+            padding: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 50%;
+            font-weight: bold;
+            animation: nav2but 1.2s linear infinite;
+        }
+        @keyframes nav2but{
+            0%{
+                transform: scale(.95);
+            }
+            50%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(.95);
+            }
+        }
+
+
+        /* for the header ends */
+        .mainSection{
+            display: flex;
+            padding: 0 10px;
+            gap: 10px;
+            margin-top: 80px;
+            
+        }
+    
+        h1{
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        aside{
+            width: 20%;
+            height: 100vh;
+            padding: 20px 10px;
+            background-color: #fff;
+            box-shadow: 0 0 5px #000000a6;
+            border-radius: 5px;
+            /* margin-left: 10px; */
+
+        }
+        aside ol{
+            list-style-type: none;
+            /* border-bottom: 1px solid ; */
+            /* border: 1px solid; */
+        }
+        aside ol li{
+            /* border: 1px solid green; */
+            margin-left: 0;
+            /* display: flex;
+            align-items: center; */
+            border-bottom: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            /* background-color: #0d6efd; */
+        }
+        aside ol li:hover{
+            background-color: rgb(20, 19, 19);
+            border-radius: 5px;
+        }
+        aside ol li:hover a{
+            color: #fff;
+            /* background-color: #0d6efd; */
+            /* border-radius: 5px; */
+        }
+        aside ol li:hover .aside-ol{
+            /* color: #fff; */
+            /* background-color: #0d6efd; */
+            /* border-radius: 5px; */
+        }
+        aside ol li:active{
+            background-color: #0d6efd;
+            border-radius: 5px;
+        }
+
+        aside ol li a{
+           
+            text-decoration: none;
+            /* padding: 5px 10px; */
+            /* padding-right: 20px; */
+            color: rgb(20, 19, 19);
+            font-size: .96rem;
+            display: flex;
+            align-items: center;
+            /* border: 1px solid; */
+        }
+        main{
+            width: 80%;
+            /* border: 1px solid; */
+            /* gap: 20px; */
+        }
+        .regisVoter-control-all{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* margin-top: 20px; */
+        }
+        .olCont{
+            width: 40px;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .regisVotercont{
+            width: 50%;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 0 5px #000000a6;
+        }
+        .totalRegistervoter{
+            font-size: 2rem;
+        }
+        .regisVotercont-two{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .regisVotercont-three p:nth-child(1){
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        .regisVotercont-three p:nth-child(2){
+            font-size: .9rem;
+        }
+        /* for chairman */
+        .chairman-allcontrol{
+            display: flex;
+            gap: 10px;
+        }
+        .chairman-controlone{
+            display: flex;
+            gap: 10px;
+            /* width: 50%; */
+            /* border: 1px solid; */
+        }
+        .chairmanPara{
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .chairman-individual-control{
+            width: 50%;
+            height: 300px;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 5px #000000a6;
+        }
+        .personalImage-Controlone{
+            display: flex;
+            gap: 8px;
+        }
+        .personalImage-Controltwo{
+            width: 70%;
+            height: 220px;
+            /* border: 1px solid; */
+            display: flex;
+            align-items: center;
+        }
+        .personalImage-Controlthree{
+            width: 100%;
+            height: 180px;
+            /* border: 1px solid; */
+            overflow: hidden;
+        }
+        .personalImage{
+            width: 100%;
+            height: 100%;
+        }
+        .personalvotes-Control{
+            text-align: center;
+            padding-top: 5px;
+        }
+        .personalvotes-Control p:nth-child(1){
+            font-size: 2rem;
+            font-weight: 600;
+            animation: nav2but 1.2s linear infinite;
+        }
+        @keyframes nav2but{
+            0%{
+                transform: scale(.95);
+            }
+            50%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(.95);
+            }
+        }
+        .personalvotes-Control p:nth-child(2){
+            font-size: .9rem;
+            /* font-weight: 600; */
+        }
+        .candidate-name{
+            font-weight: 600;
+        }
+        .candidate-progressbarone{
+            width: 100%;
+            height: 18px;
+            background-color: #ccc;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        /* first chairman color */
+        .candidate-progressbartwo{
+            width: 60%;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .9rem;
+            position: absolute;
+            background-color: #064fbd;
+            color: #fff;
+        }
+        /* second chairman color */
+        .second-chairman{
+            width: 80%;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .9rem;
+            position: absolute;
+            background-color: green;
+            color: #fff;
+        }
+        /* third chairman color */
+        .third-chairman{
+            width: 30%;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .9rem;
+            position: absolute;
+            background-color: red;
+            color: #fff;
+        }
+
+        /* fourth chairman color */
+        .fourth-chairman{
+            width: 45%;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .9rem;
+            position: absolute;
+            background-color: #FAA300;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to my dashboard</h1>
+    <!-- for the header -->
+    <header class="header">
+        <div>
+            <i class="fa-brands fa-pied-piper-pp"></i>
+        </div>
+        <div class="header-bellControl">
+            <div class="bellControl">
+                <i class="fa-solid fa-bell"></i>
+                <div class="notificatio-resultControl">
+                    <p class="notificatio-result">2</p>
+                </div>
+            </div>
+            <i class="fa-regular fa-circle-user"></i>
+        </div>
+    </header>
+    <!-- for the header ends -->
+
+    <!-- for the dashboard -->
+    <section class="mainSection">
+        <!-- for the list -->
+        <aside>
+            <ol>
+                <li><a href="/dashboard"><div class="olCont"><i class="fa-solid fa-chart-line aside-ol-img"></i></div>Dashboard</a></li>
+                <li><a href="/login"><div class="olCont"><i class="fa-solid fa-lock aside-ol-img"></i></div>Voters</a></li>
+                <li><a href="#"><div class="olCont"><i class="fa-solid fa-table aside-ol-img"></i></div>Parties</a></li>
+                <li><a href="#"><div class="olCont"><i class="fa-solid fa-location-pin aside-ol-img"></i></div>Positions</a></li>
+                <li><a href="#"><div class="olCont"><i class="fa-solid fa-person aside-ol-img"></i></div>Contenstants</a></li>
+                <li><a href="#"><div class="olCont"><i class="fa-solid fa-check-to-slot aside-ol-img"></i></div>Elections</a></li>
+                <li><a href="#"><div class="olCont"><i class="fa-solid fa-user-large aside-ol-img"></i></div>Users</a></li>
+            </ol>
+        </aside>
+           <!-- for the list ends -->
+        <main>
+            <h1>Result Dashboard</h1>
+            <div class="regisVoter-control-all">
+                <div class="regisVotercont">
+                    <div class="regisVotercont-two">
+                        <i class="fa-solid fa-pencil"></i>
+                        <div class="regisVotercont-three">
+                            <p>Registered Voter</p>
+                            <p>Total number of registered voters</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="totalRegistervoter">10</p>
+                    </div>
+                </div>
+                <div class="regisVotercont">
+                    <div class="regisVotercont-two">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <div class="regisVotercont-three">
+                            <p>Total Votes</p>
+                            <p>Total number of votes</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="totalRegistervoter">0</p>
+                    </div>
+                </div>
+               
+            </div>
+
+            <p class="chairmanPara">Chariman</p>
+            <!-- for chairman all control -->
+            <div class="chairman-allcontrol">
+
+                <!-- first and second chirman control -->
+                <div class="chairman-controlone">
+                    <!-- first chairman -->
+                    <div class="chairman-individual-control">
+                        <div class="personalImage-Controlone">
+                            <div class="personalImage-Controltwo">
+                                <div class="personalImage-Controlthree">
+                                    <img src="/images/personimg.png" alt="condidata image" class="personalImage">
+                                </div>
+                            </div>
+                            <div class="personalvotes-Control">
+                                <p>279</p>
+                                <p>Votes</p>
+                            </div>
+                        </div>
+                        <div class="candidate-name-cont">
+                            <p class="candidate-name">John Brown</p>
+                            <div class="candidate-progressbarone">
+                                <div class="candidate-progressbartwo">
+                                    <p>60%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- second chairman -->
+                    <div class="chairman-individual-control">
+                        <div class="personalImage-Controlone">
+                            <div class="personalImage-Controltwo">
+                                <div class="personalImage-Controlthree">
+                                    <img src="/images/personimg.png" alt="" class="personalImage">
+                                </div>
+                            </div>
+                            <div class="personalvotes-Control">
+                                <p>510</p>
+                                <p>Votes</p>
+                            </div>
+                        </div>
+                        <div class="candidate-name-cont">
+                            <p class="candidate-name">Norris Jaygbay</p>
+                            <div class="candidate-progressbarone">
+                                <div class="second-chairman">
+                                    <p>80%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- third and fourth chirman control -->
+
+                <div class="chairman-controlone">
+                    <!-- htird chairman -->
+                    <div class="chairman-individual-control">
+                        <div class="personalImage-Controlone">
+                            <div class="personalImage-Controltwo">
+                                <div class="personalImage-Controlthree">
+                                    <img src="/images/personimg.png" alt="" class="personalImage">
+                                </div>
+                            </div>
+                            <div class="personalvotes-Control">
+                                <p>101</p>
+                                <p>Votes</p>
+                            </div>
+                        </div>
+                        <div class="candidate-name-cont">
+                            <p class="candidate-name">Blama Doe</p>
+                            <div class="candidate-progressbarone">
+                                <div class="third-chairman">
+                                    <p>30%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- fourth chairman -->
+                    <div class="chairman-individual-control">
+                        <div class="personalImage-Controlone">
+                            <div class="personalImage-Controltwo">
+                                <div class="personalImage-Controlthree">
+                                    <img src="/images/personimg.png" alt="" class="personalImage">
+                                </div>
+                            </div>
+                            <div class="personalvotes-Control">
+                                <p>150</p>
+                                <p>Votes</p>
+                            </div>
+                        </div>
+                        <div class="candidate-name-cont">
+                            <p class="candidate-name">Mary Brown</p>
+                            <div class="candidate-progressbarone">
+                                <div class="fourth-chairman">
+                                    <p>45%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+    <!-- for the dashboard ends -->
+
+
+    <script>
+        // Get the current page URL
+        const currentPage = window.location.pathname;
+    
+        // Select all list items
+        const menuItems = document.querySelectorAll('aside ol li a');
+    
+        // Loop through each item
+        menuItems.forEach(item => {
+            // Check if the href of the item matches the current page
+            if(item.getAttribute('href') === currentPage) {
+                // Add the active class to the parent li element
+                item.parentElement.classList.add('active');
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
